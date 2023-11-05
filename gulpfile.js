@@ -43,3 +43,4 @@ function watch() {
 
 // Задачи по умолчанию
 gulp.task('default', gulp.parallel(styles, html, watch));
+gulp.task('build', gulp.parallel(styles, html));

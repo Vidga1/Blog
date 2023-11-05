@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
     "build": "gulp build",
-    "sass": "gulp sass",
-    "serve": "gulp serve"
+    "lint": "htmlhint **/*.html & stylelint **/*.scss",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,16 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.69.5"
+    "htmlhint": "^1.1.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.69.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-scss": "^5.3.0"
+  },
+  "lint-staged": {
+    "*.css": "stylelint --fix"
   }
 }
