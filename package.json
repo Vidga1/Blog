@@ -8,6 +8,7 @@
     "start": "gulp",
     "build": "gulp build",
     "lint": "htmlhint **/*.html & stylelint **/*.scss",
+    "deploy": "gh-pages -d dist",
     "prepare": "husky install"
   },
   "repository": {
@@ -37,5 +38,8 @@
   },
   "lint-staged": {
     "*.css": "stylelint --fix"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
