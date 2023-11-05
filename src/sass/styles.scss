@@ -1,0 +1,175 @@
+// Переменные
+$font-stack: 'Arial', sans-serif;
+$primary-color: #023b5f;
+$link-color: #ffffff;
+$hover-color: #e8491d;
+$background-light: #f9f9f9;
+$border-color-focus: #96c8da;
+$background-button: #5c93d9;
+$background-button-hover: #4a82d4;
+$background-button-active: #3e76bf;
+$border-radius-base: 4px;
+$font-size-large: 40px;
+$font-size-medium: 30px;
+$font-size-base: 20px;
+$font-size-small: 16px;
+
+// Миксин
+@mixin focus-style {
+  outline: none;
+  border-color: $border-color-focus;
+  box-shadow: 0 0 8px rgba(152, 216, 244, 0.6);
+}
+
+// Основные стили
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: $font-stack;
+  line-height: 1.6;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header, footer {
+  background: $primary-color;
+  color: $link-color;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+header {
+  h1 {
+    font-size: $font-size-large;
+    margin: 0;
+  }
+}
+
+nav {
+  font-size: $font-size-base;
+
+  ul {
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline;
+      margin-right: 10px;
+
+      a {
+        text-decoration: none;
+        color: $link-color;
+
+        &:hover {
+          border-bottom: 2px solid $hover-color;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
+  flex-grow: 1;
+  overflow: auto;
+  background: {
+    image: url('https://kartinki.pics/pics/uploads/posts/2022-08/1660899738_25-kartinkin-net-p-oboi-uspekh-krasivo-41.jpg');
+    size: cover;
+    repeat: no-repeat;
+    attachment: fixed;
+    position: center center;
+  };
+  color: black;
+
+  h2 {
+    font-size: $font-size-medium;
+    text-align: center;
+  }
+
+  p, ul {
+    font-size: $font-size-base;
+    text-align: center;
+  }
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  &.post {
+    background: #fff;
+
+    p {
+      margin: 30px;
+      text-align: left;
+    }
+  }
+}
+
+// Форма
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1em;
+  background: $background-light;
+  border-radius: $border-radius-base;
+
+  label {
+    display: block;
+    margin-top: 20px;
+    font-size: $font-size-small;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: $border-radius-base;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    &:focus {
+      @include focus-style;
+    }
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: $background-button;
+    color: white;
+    border: none;
+    border-radius: $border-radius-base;
+    cursor: pointer;
+    font-size: 18px;
+
+    &:hover {
+      background-color: $background-button-hover;
+    }
+
+    &:active {
+      background-color: $background-button-active;
+    }
+  }
+}
+
