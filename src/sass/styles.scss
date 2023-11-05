@@ -1,175 +1,179 @@
-// Переменные
-$font-stack: 'Arial', sans-serif;
-$primary-color: #023b5f;
-$link-color: #ffffff;
-$hover-color: #e8491d;
-$background-light: #f9f9f9;
-$border-color-focus: #96c8da;
-$background-button: #5c93d9;
-$background-button-hover: #4a82d4;
-$background-button-active: #3e76bf;
-$border-radius-base: 4px;
-$font-size-large: 40px;
-$font-size-medium: 30px;
-$font-size-base: 20px;
-$font-size-small: 16px;
-
-// Миксин
-@mixin focus-style {
-  outline: none;
-  border-color: $border-color-focus;
-  box-shadow: 0 0 8px rgba(152, 216, 244, 0.6);
-}
-
-// Основные стили
-html, body {
-  height: 100%;
+.page {
+  height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
-}
-
-body {
-  font-family: $font-stack;
-  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.2;
   padding: 0;
   background: #f4f4f4;
-  color: #333;
-}
+  color: black;
+  overflow: hidden;
 
-header, footer {
-  background: $primary-color;
-  color: $link-color;
-  text-align: center;
-  flex-shrink: 0;
-}
+  .header {
+    background: #023b5f;
+    color: #ffffff;
+    text-align: center;
+    flex-shrink: 0;
 
-header {
-  h1 {
-    font-size: $font-size-large;
-    margin: 0;
+    &__title {
+      font-size: 47px;
+      margin: 0;
+    }
+
+  .nav {
+    &__list {
+      font-size: 25px;
+      padding: 0;
+      list-style: none;
+    }
   }
-}
+    .nav {
+      &__item {
+        display: inline;
+        margin-right: 10px;
+      }
+    }
+    .nav {
+        &__link {
+          text-decoration: none;
+          color: #ffffff;
 
-nav {
-  font-size: $font-size-base;
+          &--active,
+          &:hover {
+            border-bottom: 2px solid #e8491d;
+          }
+        }
+      }
+    }
 
-  ul {
-    padding: 0;
-    list-style: none;
+  .main-content {
+    flex-grow: 1;
+    overflow: auto;
+    background-image: url('https://kartinki.pics/pics/uploads/posts/2022-08/1660899738_25-kartinkin-net-p-oboi-uspekh-krasivo-41.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
 
-    li {
-      display: inline;
-      margin-right: 10px;
+    .content {
+      &__heading {
+        font-size: 40px;
+        text-align: center;
+      }
 
-      a {
-        text-decoration: none;
-        color: $link-color;
+      &__text {
+        text-align: center;
+        font-size: 35px;
+      }
+    }
+
+    .posts-list {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 70px;
+      list-style-position: inside;
+      padding-left: 0;
+
+      &__item {
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .blog-main {
+    padding: 30px;
+
+    .post {
+      &__title {
+        text-align: center;
+        font-size: 33px;
+      }
+
+      &__date {
+        text-align: center;
+        font-size: 17px;
+      }
+
+      &__content {
+        font-size: 22px;
+        text-align: left;
+      }
+    }
+  }
+
+  .form {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 1em;
+    background: #f9f9f9;
+    border-radius: 3%;
+
+    &__label {
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    &__input,
+    &__textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: #96c8da;
+        box-shadow: 0 0 8px rgba(152, 216, 244, 0.6);
+      }
+    }
+
+    &__textarea {
+      height: 150px;
+    }
+
+    .button {
+      &.form__button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #5c93d9;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
 
         &:hover {
-          border-bottom: 2px solid $hover-color;
+          background-color: #4a82d4;
+        }
+
+        &:active {
+          background-color: #3e76bf;
         }
       }
     }
   }
 }
 
-footer {
+.footer {
+  color: white;
+  text-align: center;
   padding: 10px 0;
   position: absolute;
   bottom: 0;
   width: 100%;
-}
 
-main {
-  flex-grow: 1;
-  overflow: auto;
-  background: {
-    image: url('https://kartinki.pics/pics/uploads/posts/2022-08/1660899738_25-kartinkin-net-p-oboi-uspekh-krasivo-41.jpg');
-    size: cover;
-    repeat: no-repeat;
-    attachment: fixed;
-    position: center center;
-  };
-  color: black;
-
-  h2 {
-    font-size: $font-size-medium;
-    text-align: center;
-  }
-
-  p, ul {
-    font-size: $font-size-base;
-    text-align: center;
-  }
-
-  ul {
-    list-style-position: inside;
-    padding-left: 0;
-  }
-
-  &.post {
-    background: #fff;
-
-    p {
-      margin: 30px;
-      text-align: left;
-    }
+  .copyright {
+    font-size: 20px;
   }
 }
-
-// Форма
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 1em;
-  background: $background-light;
-  border-radius: $border-radius-base;
-
-  label {
-    display: block;
-    margin-top: 20px;
-    font-size: $font-size-small;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 8px;
-    border-radius: $border-radius-base;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-
-    &:focus {
-      @include focus-style;
-    }
-  }
-
-  textarea {
-    height: 150px;
-  }
-
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: $background-button;
-    color: white;
-    border: none;
-    border-radius: $border-radius-base;
-    cursor: pointer;
-    font-size: 18px;
-
-    &:hover {
-      background-color: $background-button-hover;
-    }
-
-    &:active {
-      background-color: $background-button-active;
-    }
-  }
-}
-
